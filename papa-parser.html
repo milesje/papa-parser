@@ -1,0 +1,108 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../file-input/file-input.html">
+
+<script src="../papaparse/papaparse.js"></script>
+
+<!--
+`papa-parser`
+Simple element that request a file and will parse it into JSON Objects.
+
+@demo demo/index.html
+-->
+
+<dom-module id="papa-parser">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      </style>
+      <file-input id="fileInput" class="button" maxFiles="{{maxFiles}}" extensions='{{extensions}}'>{{label}}</file-input>
+  </template>
+
+<script>
+Polymer({
+
+  is: 'papa-parser',
+
+  properties: {
+    label: {
+      type: String
+    },
+    outputData: {
+      type: Object,
+      notify: true
+    },
+    lastError: {
+      type: Object,
+      notify: true
+    },
+    maxFiles: {
+      type: Number,
+      value: 1,
+      notify: true
+    },
+    extensions: {
+      type: String,
+      value: '["csv", "CSV"]',
+      notify: true
+    },
+    newLine: {
+      type: String,
+      value: '\n'
+    },
+    headers: {
+      type: Boolean,
+      value: false
+    },
+    skipEmptyLine: {
+      type: Boolean,
+      value: true
+    },
+    worker: {
+      type: Boolean,
+      value: false
+    },
+    comments: {
+      type: Boolean,
+      value: false
+    },
+    download: {
+      type: Boolean,
+      value: false
+    },
+    dynamicTyping: {
+      type: Boolean,
+      value: false
+    },
+    encoding: {
+      type: String,
+      value: ""
+    }
+  },
+  listeners: {
+    'change': '_onFileChange'
+  },
+  _onFileChange: function(event){
+    Papa.parse(event.detail.valid[0], {
+      delimiter: ",",
+      newline: this.newline,
+      header: this.headers,
+      dynamicTyping: this.dynamicTyping,
+      preview: 0,
+      encoding: this.encoding,
+      worker: this.worker,
+      comments: this.comments,
+      download: this.download,
+      skipEmptyLine: this.skipEmptyLine,
+      complete: this._complete.bind(this)
+    });
+  },
+  _complete: function(results){
+    this.outputData = results.data;
+    this.fire('papa-parser-update');
+  }
+
+});
+</script>
+</dom-module>
