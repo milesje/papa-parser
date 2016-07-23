@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Simple element that uses Papa Parse and file-input to request a file and parse it into JSON Objects.",
   "main": "papa-parser.html",
+  "keywords": ["web-components", "Papa Parse", "CSV"],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "papaparse": "^4.1.2",
