@@ -1,6 +1,6 @@
 {
   "name": "papa-parser",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Simple element that uses Papa Parse and file-input to request a file and parse it into JSON Objects.",
   "main": "papa-parser.html",
   "keywords": ["web-components", "Papa Parse", "CSV"],
