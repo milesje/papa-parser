@@ -55,7 +55,7 @@ Polymer({
       type: Boolean,
       value: false
     },
-    skipEmptyLine: {
+    skipEmptyLines: {
       type: Boolean,
       value: true
     },
@@ -94,7 +94,7 @@ Polymer({
       worker: this.worker,
       comments: this.comments,
       download: this.download,
-      skipEmptyLine: this.skipEmptyLine,
+      skipEmptyLines: this.skipEmptyLines,
       complete: this._complete.bind(this)
     });
   },
