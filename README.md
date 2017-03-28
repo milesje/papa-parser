@@ -1,3 +1,5 @@
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/milesje/papa-parser)
+
 # \<papa-parser\>
 
 Simple element that request a file and will parse it into JSON Objects.
