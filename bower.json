@@ -1,14 +1,13 @@
 {
   "name": "papa-parser",
-  "version": "0.1.3",
-  "description": "Simple element that uses Papa Parse and file-input to request a file and parse it into JSON Objects.",
+  "version": "1.0.0",
+  "description": "Simple element that uses Papa Parse to parse CSV data into JSON Objects.",
   "main": "papa-parser.html",
   "license": "MIT License",
-  "keywords": ["web-components", "Papa Parse", "CSV"],
+  "keywords": ["web-components", "Papa Parse", "CSV", "JSON"],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0",
-    "papaparse": "^4.1.2",
-    "file-input": "^2.0.0"
+    "polymer": "Polymer/polymer#^1.9.0",
+    "papaparse": "^4.1.2"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
