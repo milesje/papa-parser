@@ -1,7 +1,7 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/milesje/papa-parser)
 
 # \<papa-parser\>
-NOTE: This element does NOT currenlty work with Polymer 1.X or 2.X. It is in the process of being re-written.
+NOTE: This if for Polymer 1.X only.
 
 Simple element that request a file and will parse it into JSON Objects.
 
