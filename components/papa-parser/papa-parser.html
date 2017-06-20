@@ -1,0 +1,106 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<script src="../papaparse/papaparse.min.js"></script>
+
+<!--
+`papa-parser`
+Simple element that request a file and will parse it into JSON Objects.
+
+@demo demo/index.html
+-->
+
+<dom-module id="papa-parser">
+
+  <script>
+    Polymer({
+
+      is: 'papa-parser',
+
+      properties: {
+        data: {
+          type: String,
+          observer: '_dataChanged'
+        },
+        outputData: {
+          type: Object,
+          notify: true
+        },
+        lastError: {
+          type: Object,
+          notify: true
+        },
+        maxFiles: {
+          type: Number,
+          value: 1,
+          notify: true
+        },
+        extensions: {
+          type: String,
+          value: '["csv", "CSV"]',
+          notify: true
+        },
+        newLine: {
+          type: String,
+          value: '\n'
+        },
+        headers: {
+          type: Boolean,
+          value: false
+        },
+        skipEmptyLines: {
+          type: Boolean,
+          value: true
+        },
+        worker: {
+          type: Boolean,
+          value: false
+        },
+        comments: {
+          type: Boolean,
+          value: false
+        },
+        download: {
+          type: Boolean,
+          value: false
+        },
+        dynamicTyping: {
+          type: Boolean,
+          value: false
+        },
+        encoding: {
+          type: String,
+          value: ""
+        }
+      },
+      _dataChanged: function (newValue, oldValue) {
+        console.log('data',this.data);
+        this.parse();
+      },
+      setData: function(inputData){
+        console.log('InputData', inputData);
+        this.data = inputData;
+      },
+      parse: function () {
+        Papa.parse(this.data, {
+          delimiter: ",",
+          newline: this.newline,
+          header: this.headers,
+          dynamicTyping: this.dynamicTyping,
+          preview: 0,
+          encoding: this.encoding,
+          worker: this.worker,
+          comments: this.comments,
+          download: this.download,
+          skipEmptyLines: this.skipEmptyLines,
+          complete: this._complete.bind(this)
+        });
+      },
+      _complete: function (results) {
+        console.log(results.data);
+        this.fire('papa-parser-complete', {data: results.data});
+      }
+
+    });
+
+  </script>
+</dom-module>

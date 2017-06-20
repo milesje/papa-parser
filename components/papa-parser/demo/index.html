@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>papa-parser demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+  <link rel="import" href="../papa-parser.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+
+  </style>
+
+</head>
+
+<body unresolved>
+
+  <div class="vertical-section-container centered">
+    <h3>Basic papa-parser Demo</h3>
+    <demo-snippet>
+      <template>
+        <papa-parser headers="true" id="parser"></papa-parser>
+        <input type='file' onchange='openFile(event)'><br>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <script>
+    window.addEventListener('polymer-ready', function (e) {
+      console.log('polymer-ready');
+    });
+
+    var openFile = function (event) {
+      var input = event.target;
+      var text;
+      var reader = new FileReader();
+      reader.onload = function () {
+        text = reader.result;
+        var parser = document.querySelector('papa-parser');
+        parser.data = text;
+        console.log(parser.data);
+        // parser.parse();
+      }
+      reader.readAsText(input.files[0]);
+    }
+  </script>
+</body>
+
+</html>

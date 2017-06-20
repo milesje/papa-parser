@@ -1,0 +1,33 @@
+{
+  "name": "papa-parser",
+  "description": "Simple element that uses Papa Parse to parse CSV data into JSON Objects.",
+  "main": "papa-parser.html",
+  "license": "MIT License",
+  "keywords": [
+    "web-components",
+    "Papa Parse",
+    "CSV",
+    "JSON"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.9.0",
+    "papaparse": "^4.1.2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/milesje/papa-parser",
+  "_release": "b2bd38362b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "b2bd38362b65c07c5a5d20ea56bc3b069bc86ed0"
+  },
+  "_source": "https://github.com/milesje/papa-parser.git",
+  "_target": "master",
+  "_originalSource": "milesje/papa-parser",
+  "_direct": true
+}
